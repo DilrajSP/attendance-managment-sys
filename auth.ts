@@ -22,13 +22,16 @@ export const authOptions: NextAuthOptions = {
         console.log("==== STUDENT AUTHORIZE HIT ====");
         console.log("studentCode:", credentials?.studentCode);
         if (!credentials?.studentCode || !credentials?.password) {
+          console.log("❌ Missing credentials");
           return null;
         }
 
         const student = await prisma.user.findUnique({
           where: { studentCode: credentials.studentCode },
         });
+        console.log("student found:", !!student);
         if (!student || student.role !== "STUDENT") {
+          console.log("❌ Student not found or role mismatch");
           return null;
         }
         console.log("DB HASH:", student.password);
@@ -38,6 +41,7 @@ export const authOptions: NextAuthOptions = {
           credentials.password,
           student.password,
         );
+        console.log("bcrypt result:", isValid);
         if (!isValid) return null;
 
         return {
