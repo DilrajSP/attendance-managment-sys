@@ -1,3 +1,4 @@
+export const runtime = "nodejs";
 import CredentialsProvider from "next-auth/providers/credentials";
 import prisma from "./lib/prisma";
 import bcrypt from "bcrypt";
