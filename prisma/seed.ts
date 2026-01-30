@@ -1,7 +1,7 @@
-import { Role } from "@/app/generated/prisma/enums";
 import prisma from "@/lib/prisma";
 import bcrypt from "bcrypt";
 import students from "./students.json";
+import { Role } from "@prisma/client";
 
 const DEFAULT_PASSWORD = "ChangeMe@123";
 
