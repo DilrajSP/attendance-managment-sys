@@ -1,6 +1,10 @@
 import { PrismaClient } from "@prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
 
+import fs from "fs";
+
+console.log("CA PEM exists:", fs.existsSync("ca.pem"));
+
 const globalForPrisma = global as unknown as {
   prisma: PrismaClient;
 };
