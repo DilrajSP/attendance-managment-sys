@@ -1,6 +1,4 @@
 "use server";
-export const runtime = "nodejs";
-
 import bcrypt from "bcrypt";
 import { getServerSession } from "next-auth";
 import prisma from "@/lib/prisma";

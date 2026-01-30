@@ -1,6 +1,4 @@
 "use server";
-export const runtime = "nodejs";
-
 import { authOptions } from "@/auth";
 import prisma from "@/lib/prisma";
 import { getServerSession } from "next-auth";
