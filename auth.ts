@@ -19,6 +19,8 @@ export const authOptions: NextAuthOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
+        console.log("==== STUDENT AUTHORIZE HIT ====");
+        console.log("studentCode:", credentials?.studentCode);
         if (!credentials?.studentCode || !credentials?.password) {
           return null;
         }
@@ -29,6 +31,8 @@ export const authOptions: NextAuthOptions = {
         if (!student || student.role !== "STUDENT") {
           return null;
         }
+        console.log("DB HASH:", student.password);
+        console.log("INPUT PASSWORD:", credentials.password);
 
         const isValid = await bcrypt.compare(
           credentials.password,
