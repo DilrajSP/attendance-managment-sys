@@ -22,8 +22,7 @@
 
 # misc
 .DS_Store
-- *.pem
-+ #*.pem      # ignore PEM files by default, but include ca.pem for production if needed
+*.pem
 
 
 # debug
