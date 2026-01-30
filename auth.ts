@@ -19,7 +19,6 @@ export const authOptions: NextAuthOptions = {
       },
       async authorize(credentials) {
         if (!credentials?.studentCode || !credentials?.password) {
-          console.log("❌ Missing credentials");
           return null;
         }
 
